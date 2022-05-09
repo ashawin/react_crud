@@ -11,10 +11,12 @@ axios.interceptors.request.use(
   (req) => {
     const user = localStorage.getItem('user');
     // Add configurations here
+    
 
     if (user && user.token) {
       req.common.header.Authorization = 'Bearer ${user.token}';
     }
+    console.log('req',JSON.stringify(user))
     return req;
   },
   (err) => {
