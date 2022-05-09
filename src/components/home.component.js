@@ -2,7 +2,15 @@ import React, { Component, useEffect, useState } from "react";
 import { allProducts } from "../action/product";
 import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
-import { Grid, Card, Paper, styled, CardMedia, CardContent, Typography } from "@material-ui/core";
+import {
+  Grid,
+  Card,
+  Paper,
+  styled,
+  CardMedia,
+  CardContent,
+  Typography,
+} from "@material-ui/core";
 import { Routes, Route, Link, BrowserRouter, Router } from "react-router-dom";
 function Home(props) {
   const dispatch = useDispatch();
@@ -14,29 +22,36 @@ function Home(props) {
     color: theme.palette.text.secondary,
   }));
   useEffect(() => {
-     dispatch(allProducts());
+    dispatch(allProducts());
   }, [dispatch]);
   const { products } = props;
   console.log("products ->>>>", products);
   return (
     <header className="App-header">
       <Grid container spacing={2}>
-        {products?.map((item,i) => {
+        {products?.map((item, i) => {
           console.log("data =>e", item);
-          return <Grid item xs={12} md={3} key={i}>
-            <Card>
-              <CardMedia 
-                component="img"
-                height="194"
-                image={item.images[0]}
-                alt={item.brand}/>
-              <CardContent>
-                <Typography variant="h6" gutterBottom>{item.title}</Typography>
-                <Typography variant="body1">{item.description}</Typography>
-                {/* <Link to={}/> */}
-              </CardContent>
-            </Card>
-          </Grid>;
+          return (
+            <Grid item xs={12} md={3} key={i}>
+              <Card>
+                <CardMedia
+                  component="img"
+                  height="194"
+                  image={item.images[0]}
+                  alt={item.brand}
+                />
+                <CardContent>
+                  <Link to={`/product/${item.id}`}>
+                    
+                    <Typography variant="h6" gutterBottom>
+                      {item.title}
+                    </Typography>
+                  </Link>
+                  <Typography variant="body1">{item.description}</Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          );
         })}
       </Grid>
     </header>

@@ -7,6 +7,7 @@ import Login from "./components/login.component";
 import Register from "./components/signup.component";
 import Home from "./components/home.component";
 import Profile from "./components/profile.component";
+import Product from "./components//product/procuctDetails.component";
 import Navbar from "./common/nav.component";
 import { logout } from "./action/auth";
 import { clearMessage } from "./action/message";
@@ -30,6 +31,7 @@ function App(props) {
             }
           />
           <Route exact path="/login" element={<Login />} />
+          <Route exact path="/product/:id" element={<Product />} />
           <Route exact path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
