@@ -6,10 +6,7 @@ class Profile extends Component {
   render() {
     const { user:currentUser } = this.props;
     // const currentUser=JSON.stringify(localStorage.getItem('user'));
-    console.log('userlis',currentUser)
-    if (!currentUser) {
-      return <Navigate to="/login" />;
-    }
+   
     return (
       <div className="container">
           <h3>

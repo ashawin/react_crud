@@ -11,6 +11,7 @@ import Navbar from "./common/nav.component";
 import { logout } from "./action/auth";
 import { clearMessage } from "./action/message";
 import { useDispatch } from "react-redux";
+import Protected from "./protected";
 
 function App(props) {
   return (
@@ -19,7 +20,15 @@ function App(props) {
         <Navbar isLoggedIn={props.isLoggedIn} />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/profile" element={<Profile />} />
+          <Route
+            exact
+            path="/profile"
+            element={
+              <Protected isLoggedIn={props.isLoggedIn}>
+                <Profile />
+              </Protected>
+            }
+          />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
         </Routes>
