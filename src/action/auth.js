@@ -45,15 +45,15 @@ export const login = (username, password)=> (dispatch) => {
     
     return authService.login(username, password).then(
         
-        (data) => {
+        ({data}) => {
+            console.log('user data',data)
             
             
             dispatch({
                 type: LOGIN_SUCCESS,
-                payload: { user: data }
+                payload: data 
             })
-            console.log('this is test2',data)
-            return Promise.resolve();
+          
         }),
         (error) => {
             const message =

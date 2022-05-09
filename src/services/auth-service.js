@@ -9,7 +9,7 @@ class AuthService {
             if (response.data.token) {
                 localStorage.setItem('user', response.data)
             }
-            return response.data;
+            return response;
         })
     }
     logout() {

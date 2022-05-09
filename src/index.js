@@ -15,7 +15,6 @@ axios.interceptors.request.use(
     if (user && user.token) {
       req.common.header.Authorization = 'Bearer ${user.token}';
     }
-    console.log('req',req)
     return req;
   },
   (err) => {
