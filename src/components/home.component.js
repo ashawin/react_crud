@@ -27,10 +27,10 @@ function Home(props) {
   const { products } = props;
   console.log("products ->>>>", products);
   return (
-    <header className="App-header">
+    <div className="container">
       <Grid container spacing={2}>
         {products?.map((item, i) => {
-          console.log("data =>e", item);
+         
           return (
             <Grid item xs={12} md={3} key={i}>
               <Card>
@@ -54,7 +54,7 @@ function Home(props) {
           );
         })}
       </Grid>
-    </header>
+    </div>
   );
 }
 function mapStateToProps(state) {

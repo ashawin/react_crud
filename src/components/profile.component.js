@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 
 class Profile extends Component {
   render() {
-    const { user:currentUser } = this.props;
-    // const currentUser=JSON.stringify(localStorage.getItem('user'));
    
+    const currentUser=JSON.parse(localStorage.getItem('user'));
+    console.log('cur user',currentUser)
     return (
       <div className="container">
           <h3>
